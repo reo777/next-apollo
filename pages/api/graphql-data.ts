@@ -7,9 +7,14 @@ const typeDefs = gql`
     name: String
     author: String
   }
+  type User {
+    name: String
+    age: Int
+  }
   # 取得処理 => Query
   type Query {
     book: Book
+    user: User
   }
   # 作成・更新処理 => Mutation
   type Mutation {
@@ -23,11 +28,17 @@ let book = {
   author: 'Ben Grunfeld',
 };
 
+let user = {
+  name: 'Reo Ishiyama',
+  age: 23,
+};
+
 // データの取得方法と更新方法をApolloに伝える
 const resolvers = {
   Query: {
     // bookというクエリが投げられたら、bookを返す
     book: () => book,
+    user: () => user,
   },
   Mutation: {
     // updateBookというクエリが返されたら、下記の処理を実行する

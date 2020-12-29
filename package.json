@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
+    "@types/faker": "^5.1.5",
     "apollo-boost": "^0.4.9",
     "apollo-server-micro": "^2.19.1",
+    "faker": "^5.1.0",
     "graphql": "^15.4.0",
     "next": "10.0.4",
     "react": "17.0.1",

@@ -1,10 +1,11 @@
 import {ApolloProvider} from '@apollo/react-hooks';
-import ApolloClient, {gql} from 'apollo-boost';
+import {ApolloClient, InMemoryCache} from '@apollo/client';
 import {BookInfo} from '../components/BookInfo';
 
 const Home = ({data}) => {
   const client = new ApolloClient({
     uri: 'http://localhost:3000/api/graphql-data',
+    cache: new InMemoryCache(),
   });
 
   return (
