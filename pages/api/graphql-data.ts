@@ -12,11 +12,13 @@ const typeDefs = gql`
     age: Int
   }
   # 取得処理 => Query
+  # クエリを投げられた時のエントリーポイントになる
   type Query {
     book: Book
     user: User
   }
   # 作成・更新処理 => Mutation
+  # クエリを投げられた時のエントリーポイントになる
   type Mutation {
     # !はnullを許可しない
     updateBook(name: String!, author: String!): Book

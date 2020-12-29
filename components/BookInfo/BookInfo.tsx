@@ -28,11 +28,12 @@ const SET_BOOK_DETAILS = gql`
 `;
 
 export const BookInfo = () => {
+  // useQueryはレンダリング毎に実行されるため、useLazyQueryで任意のタイミングで呼び出すようにする
   const [getBook, {data, loading, error}] = useLazyQuery(GET_BOOK_DETAILS);
   const [author, setAuthor] = React.useState(faker.name.findName());
 
   const updateCache = (cache, {data: {updateBook}}) => {
-    const existingBook = cache.readQuery({
+    cache.readQuery({
       query: GET_BOOK_DETAILS,
     });
     cache.writeQuery({
